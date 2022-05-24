@@ -1,0 +1,223 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Consulta CEP",
+        "description": "Com base no CEP será possível consultar endereços completos <table>\n\n <thead>\n    <tr>\n      <th>Versão</th>\n      <th>Elaborado por</th>\n      <th>Data</th>\n     <th>Alterações</th>\n    </tr>\n  </thead>  \n  <tbody>\n    <tr>  \n      <td>0.0.1</td>\n     <td>Regiane Brito</td>\n      <td>2022-05-18</td>\n      <td>[GOV.BR] -\nVersão inicial</td> \n    </tr> \n  </tbody>\n</table>\n\n\n\n## Objetivo\n\n\n O objetivo da API Consulta CEP é disponibilizar um determinado endereço a partir\ndo CEP\n  \n\n## Público-Alvo\n\n  Interessados em consultar endereços a partir\ndo CEP\n  \n## Provedores\n\n Governo do Brasil - https://www.gov.br/pt-br\n A\nAPI Consulta CEP é disponibilizada através de serviço HTTP REST.",
+        "version": "0.0.1",
+        "termsOfService": "https://mockapi.io",
+        "contact": {
+            "name": "Suporte a Devs",
+            "email": "contato@example.com"
+        }
+    },
+    "servers": [
+        {
+            "url": "https://h-apigateway.conectagov.estaleiro.serpro.gov.br",
+            "description": "API de Consulta CEP"
+        }
+    ],
+    "security": [
+        {
+            "OAuth2": []
+        }
+    ],
+    "paths": {
+        "/consultaCep/{CEP}": {
+            "get": {
+                "summary": "Apresenta o endereço referente a um CEP",
+                "tags": [
+                    "Consulta de CEP"
+                ],
+                "parameters": [
+                    {
+                        "name": "CEP",
+                        "in": "path",
+                        "required": true,
+                        "description": "Para o acesso aos detalhes do endereço é necessário digitar o CEP",
+                        "example": "60130240",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                      "name": "x-cpf-usuario",
+                      "in": "header",
+                      "required": true,
+                      "description": "CPF do usuário da requisição",
+                      "schema": {
+                            "type": "string"
+                        }
+                      
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Retorna os dados de endereço referentes ao CEP",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Response200"
+                                },
+                                "example": {
+                                    "cep": "60130240",
+                                    "tipoCep": "logradouro",
+                                    "subTipoCep": "S",
+                                    "uf": "CE",
+                                    "cidade": "Fortaleza",
+                                    "bairro": "São João do Tauape",
+                                    "endereco": "Avenida Pontes Vieira",
+                                    "complemento": "De 2 Até 1550 Lado Par",
+                                    "codigoIBGE": ""
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Requisição Inválida",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/error"
+                                },
+                                "example": {
+                                    "httpCode": "400",
+                                    "message": "CEP Inválido",
+                                    "link": {
+                                        "rel": "related",
+                                        "href": "https://www.gov.br/conecta/catalogo/apis/cep-codigo-de-enderecamento-postal"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Não encontrado",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/error"
+                                },
+                                "example": {
+                                    "httpCode": "404",
+                                    "message": "CEP não encontrado",
+                                    "link": {
+                                        "rel": "related",
+                                        "href": "https://www.gov.br/conecta/catalogo/apis/cep-codigo-de-enderecamento-postal"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro Interno do Servidor",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/error"
+                                },
+                                "example": {
+                                    "httpCode": "500",
+                                    "message": "Erros do backend e/ou dos servidores de dados",
+                                    "link": {
+                                        "rel": "related",
+                                        "href": "https://www.gov.br/conecta/catalogo/apis/cep-codigo-de-enderecamento-postal"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Response200": {
+                "type": "object",
+                "description": "Retorno",
+                "properties": {
+                    "cep": {
+                        "type": "string",
+                        "description": "Ex. 60130240"
+                    },
+                    "tipoCep": {
+                        "type": "string",
+                        "description": "Possibilidades logradouro, localidade, cx_postal, gr_usuario,\nuni_operacional"
+                    },
+                    "subTipoCep": {
+                        "type": "string",
+                        "description": "Ex. S"
+                    },
+                    "uf": {
+                        "type": "string",
+                        "description": "Ex. CE"
+                    },
+                    "cidade": {
+                        "type": "string",
+                        "description": "Ex. Fortaleza"
+                    },
+                    "bairro": {
+                        "type": "string",
+                        "description": "Ex. São João do Taupe"
+                    },
+                    "endereco": {
+                        "type": "string",
+                        "description": "Ex. Avenida Pontes Vieira"
+                    },
+                    "complemento": {
+                        "type": "string",
+                        "description": "Ex. \"- até 1550 - lado par\""
+                    },
+                    "codigoIBGE": {
+                        "type": "string",
+                        "description": "Ex. \"\""
+                    }
+                }
+            },
+            "error":{
+                "type": "object",
+                "description": "Objeto retornado na ocorrência de algum erro (4xx/5xx).",
+                "properties": {
+                    "httpCode":{
+                        "type": "string",
+                        "description": "Código de erro HTTP."
+                    },
+                    "message":{
+                        "type": "string",
+                        "description": "Mensagem de erro resumida."                        
+                    },
+                    "link":{
+                        "type": "array",
+                        "description": "Objeto para conter o link para a página com a documentação detalhada dos códigos e descrições dos erros no API portal.",
+                        "items":{
+                            "properties": {
+                                "rel":{
+                                    "type": "object",
+                                    "description": "Para referenciar a página de erros do API portal será utilizada a semântica \"related\" nesse cenário."
+                                },
+                                "href":{
+                                    "type": "string",
+                                    "description": "URL completa do recurso."
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "OAuth2": {
+                "type": "oauth2",
+                "description": "A autenticação é feita usando um token de acesso padrão JWT (JSON Web Token). Este token tem duração de 2 horas, recomendamos armazená-lo na aplicação cliente para uso nas Requisições ao serviço durante seu tempo de validade. Chamadas desnecessárias ao serviço de geração de tokens geram tráfego adicional na rede e podem degradar a performance da API, aumentando os tempos de resposta.",
+                "flows": {
+                "clientCredentials": {
+                    "tokenUrl": "/oauth2/jwt-token",
+                    "scopes": {}
+                  }
+        
+                }
+        
+              }
+        }
+    }
+}
