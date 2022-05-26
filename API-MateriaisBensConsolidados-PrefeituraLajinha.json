@@ -62,7 +62,7 @@
                 },
                 "example": {
                   "apiVersion": "1;2022-03-28",
-                  "transactionId": "593f33f6-6122-4624-8c1c-6602a14a730e",
+                  "transactionId": "",
                   "data": [
                     {
                       "ano": "2017",
@@ -176,7 +176,7 @@
       "transactionId": {
         "type": "string",
         "description": "Retorna o identificador de rastreabilidade de transação gerado pela API.",
-        "example": "593f33f6-6122-4624-8c1c-6602a14a730e"
+        "example": ""
       },
       "error": {
         "description": "Objeto retornado na ocorrência de algum erro (4xx/5xx).",
@@ -214,7 +214,7 @@
               },
               "link": {
                 "type": "object",
-                "description": "Objeto para conter o link para a página com a documentação detalhada dos códigos e descrições dos erros no API portal.",
+                "description": "Objeto para conter o link para a página com a documentação detalhada dos códigos e descrições dos erros",
                 "properties": {
                   "rel": {
                     "type": "string",
@@ -311,7 +311,7 @@
               "BadRequest": {
                 "value": {
                   "apiVersion": "1;2022-03-28",
-                  "transactionId": "593f33f6-6122-4624-8c1c-6602a14a730e",
+                  "transactionId": "",
                   "error": {
                     "httpCode": "400",
                     "errorCode": "API-MATERIAISEBENS-BENSCONSOLIDADOS-400",
@@ -353,7 +353,7 @@
             },
             "example": {
               "apiVersion": "1;2022-03-28",
-              "transactionId": "593f33f6-6122-4624-8c1c-6602a14a730e",
+              "transactionId": "",
               "error": {
                 "httpCode": "401",
                 "errorCode": "API-MATERIAISEBENS-BENSCONSOLIDADOS-401",
@@ -377,7 +377,7 @@
             },
             "example": {
               "apiVersion": "1;2022-03-28",
-              "transactionId": "593f33f6-6122-4624-8c1c-6602a14a730e",
+              "transactionId": "",
               "error": {
                 "httpCode": "403",
                 "errorCode": "API-MATERIAISEBENS-BENSCONSOLIDADOS-403",
@@ -401,7 +401,7 @@
             },
             "example": {
               "apiVersion": "1;2022-03-28",
-              "transactionId": "593f33f6-6122-4624-8c1c-6602a14a730e",
+              "transactionId": "",
               "error": {
                 "httpCode": "404",
                 "errorCode": "API-MATERIAISEBENS-BENSCONSOLIDADOS-404",
@@ -425,7 +425,7 @@
             },
             "example": {
               "apiVersion": "1;2022-03-28",
-              "transactionId": "593f33f6-6122-4624-8c1c-6602a14a730e",
+              "transactionId": "",
               "error": {
                 "httpCode": "405",
                 "errorCode": "API-MATERIAISEBENS-BENSCONSOLIDADOS-405",
@@ -449,7 +449,7 @@
             },
             "example": {
               "apiVersion": "1;2022-03-28",
-              "transactionId": "593f33f6-6122-4624-8c1c-6602a14a730e",
+              "transactionId": "",
               "error": {
                 "httpCode": "406",
                 "errorCode": "API-MATERIAISEBENS-BENSCONSOLIDADOS-406",
@@ -473,7 +473,7 @@
             },
             "example": {
               "apiVersion": "1;2021-08-18",
-              "transactionId": "593f33f6-6122-4624-8c1c-6602a14a730e",
+              "transactionId": "",
               "error": {
                 "httpCode": "409",
                 "errorCode": "API-MATERIAISEBENS-BENSCONSOLIDADOS-409",
@@ -497,7 +497,7 @@
             },
             "example": {
               "apiVersion": "1;2022-03-28",
-              "transactionId": "593f33f6-6122-4624-8c1c-6602a14a730e",
+              "transactionId": "",
               "error": {
                 "httpCode": "410",
                 "errorCode": "API-MATERIAISEBENS-BENSCONSOLIDADOS-410",
@@ -521,7 +521,7 @@
             },
             "example": {
               "apiVersion": "1;2022-03-28",
-              "transactionId": "593f33f6-6122-4624-8c1c-6602a14a730e",
+              "transactionId": "",
               "error": {
                 "httpCode": "415",
                 "errorCode": "API-MATERIAISEBENS-BENSCONSOLIDADOS-415",
@@ -573,7 +573,7 @@
             },
             "example": {
               "apiVersion": "1;2022-03-28",
-              "transactionId": "593f33f6-6122-4624-8c1c-6602a14a730e",
+              "transactionId": "",
               "error": {
                 "httpCode": "429",
                 "errorCode": "API-MATERIAISEBENS-BENSCONSOLIDADOS-429",
@@ -597,7 +597,7 @@
             },
             "example": {
               "apiVersion": "1;2022-03-28",
-              "transactionId": "593f33f6-6122-4624-8c1c-6602a14a730e",
+              "transactionId": "",
               "error": {
                 "httpCode": "451",
                 "errorCode": "API-MATERIAISEBENS-BENSCONSOLIDADOS-451",
@@ -623,7 +623,7 @@
               "internalServerError": {
                 "value": {
                   "apiVersion": "1;2022-03-28",
-                  "transactionId": "593f33f6-6122-4624-8c1c-6602a14a730e",
+                  "transactionId": "",
                   "error": {
                     "httpCode": "500",
                     "errorCode": "API-MATERIAISEBENS-BENSCONSOLIDADOS-500",
@@ -639,7 +639,7 @@
               "technicalFault": {
                 "value": {
                   "apiVersion": "1;2022-03-28",
-                  "transactionId": "593f33f6-6122-4624-8c1c-6602a14a730e",
+                  "transactionId": "",
                   "error": {
                     "httpCode": "500",
                     "errorCode": "API-MATERIAISEBENS-BENSCONSOLIDADOS-503",
@@ -665,10 +665,10 @@
             },
             "example": {
               "apiVersion": "1;2022-03-28",
-              "transactionId": "593f33f6-6122-4624-8c1c-6602a14a730e",
+              "transactionId": "",
               "error": {
                 "httpCode": "503",
-                "errorCode": "QUERYTRANSACTIONDETAILS-503",
+                "errorCode": "API-MATERIAISEBENS-BENSCONSOLIDADOS-503",
                 "message": "Service Unavailable",
                 "detailedMessage": "Service Unavailable.",
                 "link": {
